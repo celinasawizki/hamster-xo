@@ -20,7 +20,9 @@ check() {
 
 if [[ "$TARGET" == *.dmg ]]; then
   check "Mounting DMG"
-  MOUNT_POINT=$(hdiutil attach "$TARGET" -nobrowse -readonly | tail -1 | awk '{print $NF}')
+  # Volume name ("Philly Hamsters") has a space, so grab everything from
+  # "/Volumes/" onward rather than the last whitespace-delimited field.
+  MOUNT_POINT=$(hdiutil attach "$TARGET" -nobrowse -readonly | grep -Eo '/Volumes/.*' | tail -1)
   trap 'hdiutil detach "$MOUNT_POINT" >/dev/null 2>&1 || true' EXIT
 
   APP_IN_DMG="$MOUNT_POINT/Philly Hamsters.app"
