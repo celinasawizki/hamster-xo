@@ -2,10 +2,23 @@
 
 This is the contract between the engineering side (window management,
 countdown logic, animation *playback*) and the design side (character art,
-animation *frames*). Engineering has already built the full app against
-placeholder vector drawings (see `PhillyHamsters/Views/PlaceholderHamsterView.swift`),
-so **nothing blocks on this handoff** — the app already compiles and runs.
-Dropping in correctly-named PNGs listed below is the entire integration step.
+animation *frames*). **Nothing blocks on this handoff** — all 10 required
+sprite sheets already exist in `Assets.xcassets` and the app runs on them
+today, so a design pass is an upgrade, not a prerequisite.
+
+Current art is **procedurally generated pixel art** (`scripts/generate_sprites.swift`,
+run with `swift scripts/generate_sprites.swift`), not hand-drawn — code-driven
+shapes rasterized into a small non-antialiased grid and scaled up for a crisp
+pixel look. It's a real, usable sprite set (idle/blink/jump cycles, the hug
+approach, sleeping, celebration), but a human illustration pass will look
+better and can replace any or all of it by overwriting the same PNGs at the
+same asset names. There's also a pure-vector fallback
+(`PhillyHamsters/Views/PlaceholderHamsterView.swift`) that only renders if an
+asset is missing entirely — it won't normally be visible now that the real
+sprites are in place.
+
+Dropping in correctly-named PNGs listed below (overwriting the generated
+ones) is the entire integration step for a future art pass.
 
 ## How the fallback works
 
