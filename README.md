@@ -136,15 +136,29 @@ If those secrets aren't set, `release.yml` still builds and packages an
 **unsigned** `.dmg` — it just prints a warning and the resulting app will
 trigger a Gatekeeper prompt. **Until signing + notarization is actually
 configured and has been run successfully, don't tell the recipient the
-install is completely warning-free** — tell them to right-click the app
-and choose "Open" the first time instead.
+install is completely warning-free** — point them at
+[Gatekeeper warnings](#gatekeeper-warnings-on-unsigned-builds) below;
+on current macOS that's a System Settings step, not just a right-click.
 
 ### Gatekeeper warnings on unsigned builds
 
-An unsigned build is still a real, functional app — Gatekeeper just can't
-verify who built it. To open it anyway: right-click (or Control-click)
-**Philly Hamsters.app** in Applications → **Open** → confirm in the dialog
-that appears. This is only needed once.
+An unsigned/ad-hoc build is still a real, functional app — Gatekeeper just
+can't verify who built it, so `spctl` reports it as rejected and a plain
+double-click will refuse to open it. On current macOS (tested on 26.x),
+the override is a two-step flow — right-click → Open alone is often **not**
+enough by itself anymore:
+
+1. Try to open **Philly Hamsters.app** from Applications (double-click, or
+   right-click → Open). macOS shows a dialog saying it can't verify the
+   app, with no "Open anyway" button on the dialog itself — just dismiss it.
+2. Open **System Settings → Privacy & Security**, scroll down to the
+   **Security** section. You'll see a line like *"Philly Hamsters" was
+   blocked to protect your Mac* with an **Open Anyway** button next to it.
+   Click it, authenticate if asked, then open the app again — a final
+   confirmation dialog will have a real **Open** button this time.
+
+This is only needed once per Mac. It goes away entirely once the app is
+properly signed and notarized (see above).
 
 ## Cutting a GitHub Release
 
