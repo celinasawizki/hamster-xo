@@ -2,23 +2,16 @@
 
 This is the contract between the engineering side (window management,
 countdown logic, animation *playback*) and the design side (character art,
-animation *frames*). **Nothing blocks on this handoff** — all 10 required
-sprite sheets already exist in `Assets.xcassets` and the app runs on them
-today, so a design pass is an upgrade, not a prerequisite.
+animation *frames*). Engineering has already built the full app against
+placeholder vector drawings (see `PhillyHamsters/Views/PlaceholderHamsterView.swift`),
+so **nothing blocks on this handoff** — the app already compiles and runs.
+Dropping in correctly-named PNGs listed below is the entire integration step.
 
-Current art is **procedurally generated pixel art** (`scripts/generate_sprites.swift`,
-run with `swift scripts/generate_sprites.swift`), not hand-drawn — code-driven
-shapes rasterized into a small non-antialiased grid and scaled up for a crisp
-pixel look. It's a real, usable sprite set (idle/blink/jump cycles, the hug
-approach, sleeping, celebration), but a human illustration pass will look
-better and can replace any or all of it by overwriting the same PNGs at the
-same asset names. There's also a pure-vector fallback
-(`PhillyHamsters/Views/PlaceholderHamsterView.swift`) that only renders if an
-asset is missing entirely — it won't normally be visible now that the real
-sprites are in place.
-
-Dropping in correctly-named PNGs listed below (overwriting the generated
-ones) is the entire integration step for a future art pass.
+**Style direction, explicitly: not pixel art.** Smooth, rounded, soft-shaded
+"cute mobile game" style — closer to a polished sticker/emoji illustration
+than 8-bit sprites. Think smooth curves, soft gradients/shading, clean
+anti-aliased edges. A pixel-art pass was tried and explicitly rejected —
+don't go back there.
 
 ## How the fallback works
 
@@ -102,7 +95,7 @@ sits above the scene, not on top of it).
 The countdown text ("14 days ♡", daily message, "YOU'RE HERE!!!") is
 currently system rounded SF font, white, with a soft drop shadow for
 legibility on any wallpaper (`CountdownBadgeView.swift`). If you want a
-custom rounded pixel-style font instead:
+custom rounded display font instead:
 
 1. Add the font file to `PhillyHamsters/Assets/` and register it in
    `Info.plist` under `ATSApplicationFontsPath` / as a bundled font.
