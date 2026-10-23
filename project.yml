@@ -38,7 +38,7 @@ targets:
         CFBundleIdentifier: "$(PRODUCT_BUNDLE_IDENTIFIER)"
         LSUIElement: true
         LSMinimumSystemVersion: "13.0"
-        NSHumanReadableCopyright: "© 2026 Celina Sawizki"
+        NSHumanReadableCopyright: "© 2026 Philly Hamsters"
         NSPrincipalClass: NSApplication
         LSApplicationCategoryType: "public.app-category.entertainment"
     entitlements:

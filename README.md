@@ -1,13 +1,13 @@
 # Philly Hamsters 🐹🐹
 
-A native macOS desktop pet: two animated hamsters (Celina and Kivanc) that
-sit in the corner of the desktop, interact with each other, and count down
-the days until **November 6, 2026** — when Kivanc visits Philadelphia.
+A native macOS desktop pet: two animated hamsters that sit in the corner
+of the desktop, interact with each other, and count down the days until
+**November 6, 2026**.
 
 Built with Swift, SwiftUI, and AppKit. No Electron, no webview, no
 third-party runtime.
 
-## For Kivanc: installing the app
+## Installing the app
 
 1. Open the [Releases](../../releases) page and download `PhillyHamsters.dmg`
    from the latest release.
@@ -107,7 +107,7 @@ With those in hand:
 export DEVELOPMENT_TEAM="ABCDE12345"                 # your Team ID
 ./scripts/build_release.sh                           # builds signed
 
-export CODESIGN_IDENTITY="Developer ID Application: Celina Sawizki (ABCDE12345)"
+export CODESIGN_IDENTITY="Developer ID Application: Your Name (ABCDE12345)"
 ./scripts/codesign.sh "build/Philly Hamsters.app"
 
 ./scripts/package_dmg.sh
@@ -127,7 +127,7 @@ these **repository secrets** (Settings → Secrets and variables → Actions):
 |---|---|
 | `DEVELOPER_ID_CERTIFICATE_P12` | Your Developer ID cert + private key, exported as .p12, base64-encoded (`base64 -i cert.p12 \| pbcopy`) |
 | `DEVELOPER_ID_CERTIFICATE_PASSWORD` | The password you set when exporting the .p12 |
-| `DEVELOPER_ID_IDENTITY` | The exact identity string, e.g. `Developer ID Application: Celina Sawizki (ABCDE12345)` |
+| `DEVELOPER_ID_IDENTITY` | The exact identity string, e.g. `Developer ID Application: Your Name (ABCDE12345)` |
 | `APPLE_TEAM_ID` | Your 10-character Team ID |
 | `APPLE_ID` | The Apple ID email used for notarization |
 | `APPLE_APP_SPECIFIC_PASSWORD` | App-specific password for that Apple ID |
@@ -135,9 +135,9 @@ these **repository secrets** (Settings → Secrets and variables → Actions):
 If those secrets aren't set, `release.yml` still builds and packages an
 **unsigned** `.dmg` — it just prints a warning and the resulting app will
 trigger a Gatekeeper prompt. **Until signing + notarization is actually
-configured and has been run successfully, don't tell Kivanc the install is
-completely warning-free** — tell him to right-click the app and choose
-"Open" the first time instead.
+configured and has been run successfully, don't tell the recipient the
+install is completely warning-free** — tell them to right-click the app
+and choose "Open" the first time instead.
 
 ### Gatekeeper warnings on unsigned builds
 
@@ -155,7 +155,7 @@ that appears. This is only needed once.
    automatically.
 4. Open the release, sanity-check the notes, and publish it (or let the
    `softprops/action-gh-release` default of a published release stand).
-5. Send Kivanc the release page link.
+5. Send the release page link to whoever's getting this.
 
 To do this manually instead: build with `scripts/build_release.sh`,
 package with `scripts/package_dmg.sh`, sign/notarize/staple if you have

@@ -56,7 +56,7 @@ fine, AppKit will scale).
 | Asset name | Frames | Used for | Notes |
 |---|---|---|---|
 | `pair_hugging` | 8 | The centerpiece hug animation | See sequence below |
-| `pair_missing_you` | 6 | Celina sad, Kivanc comforts her | Loops at ~8fps while active |
+| `pair_missing_you` | 6 | Girl hamster sad, boy hamster comforts her | Loops at ~8fps while active |
 | `pair_sleeping` | 2 | Cuddled, eyes closed | Slow "breathing" loop, ~1fps |
 | `pair_celebration` | 8 | Arrival-day / countdown-excitement jump | Hearts can be baked into the frames or left for the engine's heart overlay — your call, see below |
 
@@ -66,10 +66,10 @@ Total: **6 solo sheets + 4 pair sheets = 10 PNGs** (plus the app icon, see below
 
 Map the 8 `pair_hugging` frames to the narrative from the design brief:
 
-1. Sitting apart, Celina glancing at Kivanc
-2. Celina wiggling excitedly
-3. Celina moving closer
-4. Kivanc opening his paws
+1. Sitting apart, the girl hamster glancing at the boy hamster
+2. Girl hamster wiggling excitedly
+3. Girl hamster moving closer
+4. Boy hamster opening his paws
 5. Contact — arms around each other
 6. Cheeks squished together
 7. Hold (this is the frame most likely to get frozen/held visually if the engine needs to pad timing)
