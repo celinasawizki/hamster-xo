@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		075E33E8AD482854AF14D40F /* PhillyHamstersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E084B96B360034526C5397 /* PhillyHamstersApp.swift */; };
+		14A3E4E6B887504801BD3AAC /* HamsterAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF54284CDBA6C81D6DDA240B /* HamsterAnimationState.swift */; };
+		19CD9BD3E3EEC8AAD22FCBD9 /* PlaceholderHamsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FB71ECD9679A7F97E4AE2B /* PlaceholderHamsterView.swift */; };
+		1BA1F684DBE431C8451F5BA8 /* CountdownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFBA958B525E2A35777223 /* CountdownModel.swift */; };
+		413985A145D6DBEB09F3CCDE /* HamsterPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816CEED00FBAC8B00647645 /* HamsterPanelController.swift */; };
+		41B610C9602F2BDFCC6C1930 /* DailyMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDDFBF3E2DBC30975233B4E /* DailyMessagesTests.swift */; };
+		5F0BB10F903C16791CDE067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12450E9356FDB5564F567077 /* AppDelegate.swift */; };
+		68BE1F77C25671777B7C4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F56D796D91B3B71B8F605C96 /* Assets.xcassets */; };
+		69B62415663598453325CCA3 /* WindowPositionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4182676947A391C9892DD3FE /* WindowPositionStore.swift */; };
+		81131BC209AB07B2414FED03 /* CountdownModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838B3047B023DD6DA5BC68F /* CountdownModelTests.swift */; };
+		8D780778B0910905155DF78C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C615373F20B8AA0862833 /* SettingsView.swift */; };
+		8E75844A570B1ED4ABB1F25E /* SpriteCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FF8A7B417C5F50DE5C0EB /* SpriteCatalog.swift */; };
+		9506420C49CB5386AA16EC50 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A4854F63A51F16E40C578 /* AppNotifications.swift */; };
+		A2A8ED101F8D5D73D31FFED7 /* HamsterSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B70F8ECFD247D5478D6F28 /* HamsterSceneView.swift */; };
+		AF6809C5CEB6EEF86A69EF36 /* CountdownScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88124A62AF04F5A184CF7B8 /* CountdownScheduler.swift */; };
+		B38F6EF2ABFBDABA5763518E /* DailyMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BA7D3430E81070D4BB772 /* DailyMessages.swift */; };
+		BC9D684D1AD1F6411FAF7C45 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27C8492502D181BB92FE44 /* SettingsStore.swift */; };
+		BF924F2A71F8CB1E8FFF2EA4 /* HamsterPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C881A35205F7274A0C941A2 /* HamsterPanel.swift */; };
+		C4DBC50A71D1DE49574AE81C /* HamsterSpriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2043AA6F08A9F06BF7E040D /* HamsterSpriteView.swift */; };
+		D2CE6B69465BA8E177DE031D /* PairSpriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB67C26B07DEAEFCDF426A /* PairSpriteView.swift */; };
+		D343D6F8909AFC624CA8F2E1 /* CountdownBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CB86933B9CD3FB3387C7C5 /* CountdownBadgeView.swift */; };
+		D3FF160B3EEE97C5A4141055 /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243987801F513CC8973A87F3 /* LaunchAtLoginService.swift */; };
+		DE3F987D0DBD87AD74329F84 /* HamsterSceneAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14B7BE85A13B5E35C0AE6B /* HamsterSceneAnimator.swift */; };
+		E78ABCC0E0F5C4E8641B9CDA /* SpriteFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C647DA1BC2FDD5510B77152A /* SpriteFrame.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F0DED6B6DF2B0878D487B03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CF64DDA27C97082C0235DCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF2C491DD3D3358AB9A1CA7;
+			remoteInfo = PhillyHamsters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FFBA958B525E2A35777223 /* CountdownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownModel.swift; sourceTree = "<group>"; };
+		0C881A35205F7274A0C941A2 /* HamsterPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterPanel.swift; sourceTree = "<group>"; };
+		12450E9356FDB5564F567077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18A665A37DCD5EEF3B9D9E70 /* PhillyHamstersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhillyHamstersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFAB4F9DC45F24936938AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		243987801F513CC8973A87F3 /* LaunchAtLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginService.swift; sourceTree = "<group>"; };
+		2838B3047B023DD6DA5BC68F /* CountdownModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownModelTests.swift; sourceTree = "<group>"; };
+		30FC19C1CF66C14B04607171 /* PhillyHamsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhillyHamsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C27C8492502D181BB92FE44 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		4182676947A391C9892DD3FE /* WindowPositionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPositionStore.swift; sourceTree = "<group>"; };
+		47CB86933B9CD3FB3387C7C5 /* CountdownBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownBadgeView.swift; sourceTree = "<group>"; };
+		5B2A4854F63A51F16E40C578 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		649FF8A7B417C5F50DE5C0EB /* SpriteCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCatalog.swift; sourceTree = "<group>"; };
+		6816CEED00FBAC8B00647645 /* HamsterPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterPanelController.swift; sourceTree = "<group>"; };
+		683C615373F20B8AA0862833 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6FFB67C26B07DEAEFCDF426A /* PairSpriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairSpriteView.swift; sourceTree = "<group>"; };
+		70FB71ECD9679A7F97E4AE2B /* PlaceholderHamsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderHamsterView.swift; sourceTree = "<group>"; };
+		8CDDFBF3E2DBC30975233B4E /* DailyMessagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMessagesTests.swift; sourceTree = "<group>"; };
+		93837CB37BF7EDE6A708242C /* PhillyHamsters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhillyHamsters.entitlements; sourceTree = "<group>"; };
+		A2043AA6F08A9F06BF7E040D /* HamsterSpriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterSpriteView.swift; sourceTree = "<group>"; };
+		A88124A62AF04F5A184CF7B8 /* CountdownScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownScheduler.swift; sourceTree = "<group>"; };
+		AC2BA7D3430E81070D4BB772 /* DailyMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMessages.swift; sourceTree = "<group>"; };
+		BC14B7BE85A13B5E35C0AE6B /* HamsterSceneAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterSceneAnimator.swift; sourceTree = "<group>"; };
+		C647DA1BC2FDD5510B77152A /* SpriteFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteFrame.swift; sourceTree = "<group>"; };
+		C8B70F8ECFD247D5478D6F28 /* HamsterSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterSceneView.swift; sourceTree = "<group>"; };
+		CF54284CDBA6C81D6DDA240B /* HamsterAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterAnimationState.swift; sourceTree = "<group>"; };
+		D1E084B96B360034526C5397 /* PhillyHamstersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyHamstersApp.swift; sourceTree = "<group>"; };
+		F56D796D91B3B71B8F605C96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		159998280CA2FBEB23F67647 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01FFBA958B525E2A35777223 /* CountdownModel.swift */,
+				AC2BA7D3430E81070D4BB772 /* DailyMessages.swift */,
+				CF54284CDBA6C81D6DDA240B /* HamsterAnimationState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		160F5C3EF304862D1F7A4043 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47CB86933B9CD3FB3387C7C5 /* CountdownBadgeView.swift */,
+				C8B70F8ECFD247D5478D6F28 /* HamsterSceneView.swift */,
+				A2043AA6F08A9F06BF7E040D /* HamsterSpriteView.swift */,
+				6FFB67C26B07DEAEFCDF426A /* PairSpriteView.swift */,
+				70FB71ECD9679A7F97E4AE2B /* PlaceholderHamsterView.swift */,
+				683C615373F20B8AA0862833 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		316233336C7A349B2E1BEED5 /* PhillyHamstersTests */ = {
+			isa = PBXGroup;
+			children = (
+				2838B3047B023DD6DA5BC68F /* CountdownModelTests.swift */,
+				8CDDFBF3E2DBC30975233B4E /* DailyMessagesTests.swift */,
+			);
+			path = PhillyHamstersTests;
+			sourceTree = "<group>";
+		};
+		3E84CA571145FD44665ED050 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				12450E9356FDB5564F567077 /* AppDelegate.swift */,
+				0C881A35205F7274A0C941A2 /* HamsterPanel.swift */,
+				6816CEED00FBAC8B00647645 /* HamsterPanelController.swift */,
+				1FFAB4F9DC45F24936938AE5 /* Info.plist */,
+				93837CB37BF7EDE6A708242C /* PhillyHamsters.entitlements */,
+				D1E084B96B360034526C5397 /* PhillyHamstersApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4DC6DB46AC459055ACC63B21 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B2A4854F63A51F16E40C578 /* AppNotifications.swift */,
+				A88124A62AF04F5A184CF7B8 /* CountdownScheduler.swift */,
+				243987801F513CC8973A87F3 /* LaunchAtLoginService.swift */,
+				3C27C8492502D181BB92FE44 /* SettingsStore.swift */,
+				4182676947A391C9892DD3FE /* WindowPositionStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5894F05BBEFC871224B38F3F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				BC14B7BE85A13B5E35C0AE6B /* HamsterSceneAnimator.swift */,
+				649FF8A7B417C5F50DE5C0EB /* SpriteCatalog.swift */,
+				C647DA1BC2FDD5510B77152A /* SpriteFrame.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		69F610BAA13674E8D6F41C37 = {
+			isa = PBXGroup;
+			children = (
+				A83998538B85CF50099F0604 /* PhillyHamsters */,
+				82D0AC5AEC59F21F95562784 /* Tests */,
+				F40EC627D536BC5C9A0B2A49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		82D0AC5AEC59F21F95562784 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				316233336C7A349B2E1BEED5 /* PhillyHamstersTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A83998538B85CF50099F0604 /* PhillyHamsters */ = {
+			isa = PBXGroup;
+			children = (
+				5894F05BBEFC871224B38F3F /* Animations */,
+				3E84CA571145FD44665ED050 /* App */,
+				BB2D22CD9F44DCBACC6E0A80 /* Assets */,
+				159998280CA2FBEB23F67647 /* Models */,
+				4DC6DB46AC459055ACC63B21 /* Services */,
+				160F5C3EF304862D1F7A4043 /* Views */,
+			);
+			path = PhillyHamsters;
+			sourceTree = "<group>";
+		};
+		BB2D22CD9F44DCBACC6E0A80 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F56D796D91B3B71B8F605C96 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F40EC627D536BC5C9A0B2A49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30FC19C1CF66C14B04607171 /* PhillyHamsters.app */,
+				18A665A37DCD5EEF3B9D9E70 /* PhillyHamstersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		34CF4C08B0A4B51AE7936374 /* PhillyHamstersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07874B89067465392A062DD8 /* Build configuration list for PBXNativeTarget "PhillyHamstersTests" */;
+			buildPhases = (
+				01B8F31567F651F4776BACD9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5790C32FA32313B865956BEE /* PBXTargetDependency */,
+			);
+			name = PhillyHamstersTests;
+			packageProductDependencies = (
+			);
+			productName = PhillyHamstersTests;
+			productReference = 18A665A37DCD5EEF3B9D9E70 /* PhillyHamstersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFF2C491DD3D3358AB9A1CA7 /* PhillyHamsters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5904714277E8C1C5ED0F3720 /* Build configuration list for PBXNativeTarget "PhillyHamsters" */;
+			buildPhases = (
+				11516A02DAFE8D63A62BC096 /* Sources */,
+				2E3F76C945EB992D0651A866 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhillyHamsters;
+			packageProductDependencies = (
+			);
+			productName = PhillyHamsters;
+			productReference = 30FC19C1CF66C14B04607171 /* PhillyHamsters.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3CF64DDA27C97082C0235DCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					34CF4C08B0A4B51AE7936374 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					EFF2C491DD3D3358AB9A1CA7 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8964991187BCE66456C57829 /* Build configuration list for PBXProject "PhillyHamsters" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 69F610BAA13674E8D6F41C37;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F40EC627D536BC5C9A0B2A49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFF2C491DD3D3358AB9A1CA7 /* PhillyHamsters */,
+				34CF4C08B0A4B51AE7936374 /* PhillyHamstersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E3F76C945EB992D0651A866 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68BE1F77C25671777B7C4607 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01B8F31567F651F4776BACD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81131BC209AB07B2414FED03 /* CountdownModelTests.swift in Sources */,
+				41B610C9602F2BDFCC6C1930 /* DailyMessagesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11516A02DAFE8D63A62BC096 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F0BB10F903C16791CDE067E /* AppDelegate.swift in Sources */,
+				9506420C49CB5386AA16EC50 /* AppNotifications.swift in Sources */,
+				D343D6F8909AFC624CA8F2E1 /* CountdownBadgeView.swift in Sources */,
+				1BA1F684DBE431C8451F5BA8 /* CountdownModel.swift in Sources */,
+				AF6809C5CEB6EEF86A69EF36 /* CountdownScheduler.swift in Sources */,
+				B38F6EF2ABFBDABA5763518E /* DailyMessages.swift in Sources */,
+				14A3E4E6B887504801BD3AAC /* HamsterAnimationState.swift in Sources */,
+				BF924F2A71F8CB1E8FFF2EA4 /* HamsterPanel.swift in Sources */,
+				413985A145D6DBEB09F3CCDE /* HamsterPanelController.swift in Sources */,
+				DE3F987D0DBD87AD74329F84 /* HamsterSceneAnimator.swift in Sources */,
+				A2A8ED101F8D5D73D31FFED7 /* HamsterSceneView.swift in Sources */,
+				C4DBC50A71D1DE49574AE81C /* HamsterSpriteView.swift in Sources */,
+				D3FF160B3EEE97C5A4141055 /* LaunchAtLoginService.swift in Sources */,
+				D2CE6B69465BA8E177DE031D /* PairSpriteView.swift in Sources */,
+				075E33E8AD482854AF14D40F /* PhillyHamstersApp.swift in Sources */,
+				19CD9BD3E3EEC8AAD22FCBD9 /* PlaceholderHamsterView.swift in Sources */,
+				BC9D684D1AD1F6411FAF7C45 /* SettingsStore.swift in Sources */,
+				8D780778B0910905155DF78C /* SettingsView.swift in Sources */,
+				8E75844A570B1ED4ABB1F25E /* SpriteCatalog.swift in Sources */,
+				E78ABCC0E0F5C4E8641B9CDA /* SpriteFrame.swift in Sources */,
+				69B62415663598453325CCA3 /* WindowPositionStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5790C32FA32313B865956BEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFF2C491DD3D3358AB9A1CA7 /* PhillyHamsters */;
+			targetProxy = 8F0DED6B6DF2B0878D487B03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3BBA3C21E52B3AAF5CEA67E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.celinasawizki.phillyhamsters.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Philly Hamsters.app/Contents/MacOS/Philly Hamsters";
+			};
+			name = Debug;
+		};
+		47D41D2F055D768A14728DC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		852AF791FEF21FAD5F42BAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9207A2CEC226C1C8AFCAADD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PhillyHamsters/App/PhillyHamsters.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PhillyHamsters/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.celinasawizki.phillyhamsters;
+				PRODUCT_MODULE_NAME = PhillyHamsters;
+				PRODUCT_NAME = "Philly Hamsters";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B823DC0DAD4BE49742D40F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PhillyHamsters/App/PhillyHamsters.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PhillyHamsters/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.celinasawizki.phillyhamsters;
+				PRODUCT_MODULE_NAME = PhillyHamsters;
+				PRODUCT_NAME = "Philly Hamsters";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C8B5C79770B28E844A27A301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.celinasawizki.phillyhamsters.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Philly Hamsters.app/Contents/MacOS/Philly Hamsters";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07874B89067465392A062DD8 /* Build configuration list for PBXNativeTarget "PhillyHamstersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBA3C21E52B3AAF5CEA67E8 /* Debug */,
+				C8B5C79770B28E844A27A301 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5904714277E8C1C5ED0F3720 /* Build configuration list for PBXNativeTarget "PhillyHamsters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9207A2CEC226C1C8AFCAADD5 /* Debug */,
+				B823DC0DAD4BE49742D40F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8964991187BCE66456C57829 /* Build configuration list for PBXProject "PhillyHamsters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				852AF791FEF21FAD5F42BAC4 /* Debug */,
+				47D41D2F055D768A14728DC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3CF64DDA27C97082C0235DCC /* Project object */;
+}

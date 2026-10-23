@@ -1,0 +1,71 @@
+name: PhillyHamsters
+options:
+  bundleIdPrefix: com.celinasawizki
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+targets:
+  PhillyHamsters:
+    type: application
+    platform: macOS
+    sources:
+      - path: PhillyHamsters
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.celinasawizki.phillyhamsters
+        PRODUCT_NAME: "Philly Hamsters"
+        PRODUCT_MODULE_NAME: PhillyHamsters
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+    info:
+      path: PhillyHamsters/App/Info.plist
+      properties:
+        CFBundleName: "Philly Hamsters"
+        CFBundleDisplayName: "Philly Hamsters"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleIdentifier: "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        LSUIElement: true
+        LSMinimumSystemVersion: "13.0"
+        NSHumanReadableCopyright: "© 2026 Celina Sawizki"
+        NSPrincipalClass: NSApplication
+        LSApplicationCategoryType: "public.app-category.entertainment"
+    entitlements:
+      path: PhillyHamsters/App/PhillyHamsters.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+  PhillyHamstersTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests/PhillyHamstersTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.celinasawizki.phillyhamsters.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Philly Hamsters.app/Contents/MacOS/Philly Hamsters"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+    dependencies:
+      - target: PhillyHamsters
+schemes:
+  PhillyHamsters:
+    build:
+      targets:
+        PhillyHamsters: all
+        PhillyHamstersTests: [test]
+    test:
+      targets:
+        - PhillyHamstersTests
+    run:
+      config: Debug

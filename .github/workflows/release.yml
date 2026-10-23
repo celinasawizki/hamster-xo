@@ -1,0 +1,96 @@
+name: Release
+
+# Builds PhillyHamsters.dmg and attaches it to a GitHub Release whenever a
+# tag like "v1.0.0" is pushed.
+#
+# Signing/notarization only runs if the required secrets are present
+# (see README.md "Signing & Notarization"). Without them, this still
+# produces a real, working .dmg — just one Gatekeeper will warn about
+# until the recipient right-clicks > Open. The job explicitly prints which
+# path it took so the release notes aren't misleading about that.
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Determine signing availability
+        id: signing
+        run: |
+          if [[ -n "${{ secrets.DEVELOPER_ID_CERTIFICATE_P12 }}" && -n "${{ secrets.DEVELOPER_ID_CERTIFICATE_PASSWORD }}" ]]; then
+            echo "has_signing=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_signing=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import signing certificate
+        if: steps.signing.outputs.has_signing == 'true'
+        env:
+          CERT_P12: ${{ secrets.DEVELOPER_ID_CERTIFICATE_P12 }}
+          CERT_PASSWORD: ${{ secrets.DEVELOPER_ID_CERTIFICATE_PASSWORD }}
+        run: |
+          KEYCHAIN_PASSWORD="$(uuidgen)"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+          echo "$CERT_P12" | base64 --decode > certificate.p12
+          security import certificate.p12 -k build.keychain -P "$CERT_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" build.keychain
+          rm certificate.p12
+
+      - name: Build (signed)
+        if: steps.signing.outputs.has_signing == 'true'
+        env:
+          DEVELOPMENT_TEAM: ${{ secrets.APPLE_TEAM_ID }}
+        run: ./scripts/build_release.sh
+
+      - name: Build (unsigned)
+        if: steps.signing.outputs.has_signing != 'true'
+        run: |
+          echo "::warning::No signing secrets configured — producing an UNSIGNED build. Recipients will see a Gatekeeper warning on first launch."
+          ./scripts/build_release.sh
+
+      - name: Codesign
+        if: steps.signing.outputs.has_signing == 'true'
+        env:
+          CODESIGN_IDENTITY: ${{ secrets.DEVELOPER_ID_IDENTITY }}
+        run: ./scripts/codesign.sh "build/Philly Hamsters.app"
+
+      - name: Package DMG
+        run: ./scripts/package_dmg.sh
+
+      - name: Notarize
+        if: steps.signing.outputs.has_signing == 'true'
+        env:
+          NOTARY_PROFILE: PhillyHamstersNotary
+        run: |
+          xcrun notarytool store-credentials "PhillyHamstersNotary" \
+            --apple-id "${{ secrets.APPLE_ID }}" \
+            --team-id "${{ secrets.APPLE_TEAM_ID }}" \
+            --password "${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}"
+          ./scripts/notarize.sh build/PhillyHamsters.dmg
+
+      - name: Staple
+        if: steps.signing.outputs.has_signing == 'true'
+        run: ./scripts/staple.sh build/PhillyHamsters.dmg
+
+      - name: Validate
+        run: ./scripts/validate.sh build/PhillyHamsters.dmg
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/PhillyHamsters.dmg
+          generate_release_notes: true
