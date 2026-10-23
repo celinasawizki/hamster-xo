@@ -36,6 +36,11 @@ jobs:
           else
             echo "has_signing=false" >> "$GITHUB_OUTPUT"
           fi
+          if [[ -n "${{ secrets.DEVELOPER_ID_INSTALLER_IDENTITY }}" ]]; then
+            echo "has_installer_identity=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_installer_identity=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Import signing certificate
         if: steps.signing.outputs.has_signing == 'true'
@@ -77,9 +82,11 @@ jobs:
         run: ./scripts/package_pkg.sh
 
       - name: Sign PKG
-        if: steps.signing.outputs.has_signing == 'true' && secrets.DEVELOPER_ID_INSTALLER_IDENTITY != ''
+        if: steps.signing.outputs.has_signing == 'true' && steps.signing.outputs.has_installer_identity == 'true'
+        env:
+          INSTALLER_IDENTITY: ${{ secrets.DEVELOPER_ID_INSTALLER_IDENTITY }}
         run: |
-          productsign --sign "${{ secrets.DEVELOPER_ID_INSTALLER_IDENTITY }}" \
+          productsign --sign "$INSTALLER_IDENTITY" \
             build/PhillyHamsters.pkg build/PhillyHamsters-signed.pkg
           mv build/PhillyHamsters-signed.pkg build/PhillyHamsters.pkg
 
