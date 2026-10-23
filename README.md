@@ -9,15 +9,26 @@ third-party runtime.
 
 ## Installing the app
 
-1. Open the [Releases](../../releases) page and download `PhillyHamsters.dmg`
+Every release has two installer options — use whichever works:
+
+**Option A — PKG installer (recommended, no drag-and-drop needed)**
+
+1. Open the [Releases](../../releases) page and download `PhillyHamsters.pkg`
    from the latest release.
-2. Double-click the downloaded `.dmg` to open it.
-3. Drag **Philly Hamsters** into the **Applications** shortcut shown in the
-   same window.
+2. Double-click it. macOS's own Installer app opens.
+3. Click **Continue** → **Install** (enter your password if asked) → **Close**.
 4. Open **Philly Hamsters** from Applications (or Spotlight).
 5. The hamsters appear in the bottom-right corner of the screen.
 
-No Xcode, Terminal, Homebrew, or any developer tools are needed.
+**Option B — DMG (drag to Applications)**
+
+1. Download `PhillyHamsters.dmg` from the latest release instead.
+2. Double-click it to open.
+3. Drag **Philly Hamsters** into the **Applications** shortcut shown in the
+   same window.
+4. Open **Philly Hamsters** from Applications (or Spotlight).
+
+No Xcode, Terminal, Homebrew, or any developer tools are needed for either.
 
 **If macOS shows a warning the first time you open it** ("Philly Hamsters
 can't be opened because Apple cannot verify..."), see
@@ -82,11 +93,14 @@ survive the next `xcodegen generate`).
 ```sh
 ./scripts/build_release.sh     # -> build/Philly Hamsters.app
 ./scripts/package_dmg.sh       # -> build/PhillyHamsters.dmg
+./scripts/package_pkg.sh       # -> build/PhillyHamsters.pkg
 ./scripts/validate.sh build/PhillyHamsters.dmg
+./scripts/validate.sh build/PhillyHamsters.pkg
 ```
 
-This produces a real, working `.dmg`. Whether it installs **without a
-Gatekeeper warning** depends entirely on signing + notarization — see below.
+This produces a real, working `.dmg` and `.pkg`. Whether either installs
+**without a Gatekeeper warning** depends entirely on signing + notarization
+— see below.
 
 ## Signing & notarization
 
@@ -95,7 +109,10 @@ security friction requires:
 
 1. **An Apple Developer Program membership** (US $99/year) —
    https://developer.apple.com/programs/enroll/
-2. **A "Developer ID Application" certificate**, created at
+2. **A "Developer ID Application" certificate** (signs the `.app`/`.dmg`)
+   and, if you also want the `.pkg` signed, **a separate "Developer ID
+   Installer" certificate** (signs `.pkg` files — `productsign`, not
+   `codesign`) — both created at
    https://developer.apple.com/account/resources/certificates/list and
    installed in your keychain.
 3. **An app-specific password** (or App Store Connect API key) for
@@ -111,13 +128,20 @@ export CODESIGN_IDENTITY="Developer ID Application: Your Name (ABCDE12345)"
 ./scripts/codesign.sh "build/Philly Hamsters.app"
 
 ./scripts/package_dmg.sh
+./scripts/package_pkg.sh
+productsign --sign "Developer ID Installer: Your Name (ABCDE12345)" \
+  build/PhillyHamsters.pkg build/PhillyHamsters-signed.pkg
+mv build/PhillyHamsters-signed.pkg build/PhillyHamsters.pkg
 
 xcrun notarytool store-credentials "PhillyHamstersNotary" \
   --apple-id "you@example.com" --team-id "ABCDE12345" --password "<app-specific password>"
 ./scripts/notarize.sh build/PhillyHamsters.dmg
+./scripts/notarize.sh build/PhillyHamsters.pkg
 ./scripts/staple.sh build/PhillyHamsters.dmg
+./scripts/staple.sh build/PhillyHamsters.pkg
 
 ./scripts/validate.sh build/PhillyHamsters.dmg
+./scripts/validate.sh build/PhillyHamsters.pkg
 ```
 
 To run this automatically in CI (`.github/workflows/release.yml`), add
@@ -126,6 +150,7 @@ these **repository secrets** (Settings → Secrets and variables → Actions):
 | Secret | What it is |
 |---|---|
 | `DEVELOPER_ID_CERTIFICATE_P12` | Your Developer ID cert + private key, exported as .p12, base64-encoded (`base64 -i cert.p12 \| pbcopy`) |
+| `DEVELOPER_ID_INSTALLER_IDENTITY` | Optional — a "Developer ID Installer" identity string to also sign the `.pkg`. Without it, the `.pkg` still ships, just unsigned. |
 | `DEVELOPER_ID_CERTIFICATE_PASSWORD` | The password you set when exporting the .p12 |
 | `DEVELOPER_ID_IDENTITY` | The exact identity string, e.g. `Developer ID Application: Your Name (ABCDE12345)` |
 | `APPLE_TEAM_ID` | Your 10-character Team ID |
@@ -165,16 +190,17 @@ properly signed and notarized (see above).
 1. Make sure `main` is green (Actions tab shows the Build & Test workflow passing).
 2. Tag it: `git tag v1.0.0 && git push origin v1.0.0`.
 3. The `Release` workflow builds, packages, (signs/notarizes if secrets are
-   configured), and attaches `PhillyHamsters.dmg` to a new GitHub Release
-   automatically.
+   configured), and attaches both `PhillyHamsters.dmg` and
+   `PhillyHamsters.pkg` to a new GitHub Release automatically.
 4. Open the release, sanity-check the notes, and publish it (or let the
    `softprops/action-gh-release` default of a published release stand).
 5. Send the release page link to whoever's getting this.
 
 To do this manually instead: build with `scripts/build_release.sh`,
-package with `scripts/package_dmg.sh`, sign/notarize/staple if you have
-credentials, run `scripts/validate.sh`, then `gh release create v1.0.0
-build/PhillyHamsters.dmg --title "Philly Hamsters v1.0.0"`.
+package with `scripts/package_dmg.sh` and `scripts/package_pkg.sh`,
+sign/notarize/staple if you have credentials, run `scripts/validate.sh`
+on each, then `gh release create v1.0.0 build/PhillyHamsters.dmg
+build/PhillyHamsters.pkg --title "Philly Hamsters v1.0.0"`.
 
 ## Design handoff
 

@@ -73,6 +73,16 @@ jobs:
       - name: Package DMG
         run: ./scripts/package_dmg.sh
 
+      - name: Package PKG
+        run: ./scripts/package_pkg.sh
+
+      - name: Sign PKG
+        if: steps.signing.outputs.has_signing == 'true' && secrets.DEVELOPER_ID_INSTALLER_IDENTITY != ''
+        run: |
+          productsign --sign "${{ secrets.DEVELOPER_ID_INSTALLER_IDENTITY }}" \
+            build/PhillyHamsters.pkg build/PhillyHamsters-signed.pkg
+          mv build/PhillyHamsters-signed.pkg build/PhillyHamsters.pkg
+
       - name: Notarize
         if: steps.signing.outputs.has_signing == 'true'
         env:
@@ -83,16 +93,23 @@ jobs:
             --team-id "${{ secrets.APPLE_TEAM_ID }}" \
             --password "${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}"
           ./scripts/notarize.sh build/PhillyHamsters.dmg
+          ./scripts/notarize.sh build/PhillyHamsters.pkg
 
       - name: Staple
         if: steps.signing.outputs.has_signing == 'true'
-        run: ./scripts/staple.sh build/PhillyHamsters.dmg
+        run: |
+          ./scripts/staple.sh build/PhillyHamsters.dmg
+          ./scripts/staple.sh build/PhillyHamsters.pkg
 
       - name: Validate
-        run: ./scripts/validate.sh build/PhillyHamsters.dmg
+        run: |
+          ./scripts/validate.sh build/PhillyHamsters.dmg
+          ./scripts/validate.sh build/PhillyHamsters.pkg
 
-      - name: Upload release asset
+      - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
-          files: build/PhillyHamsters.dmg
+          files: |
+            build/PhillyHamsters.dmg
+            build/PhillyHamsters.pkg
           generate_release_notes: true

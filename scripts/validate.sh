@@ -6,17 +6,38 @@
 # Usage:
 #   ./scripts/validate.sh build/"Philly Hamsters.app"
 #   ./scripts/validate.sh build/PhillyHamsters.dmg
+#   ./scripts/validate.sh build/PhillyHamsters.pkg
 set -euo pipefail
 
 TARGET="${1:-}"
 if [[ -z "$TARGET" || ! -e "$TARGET" ]]; then
-  echo "usage: $0 <path to .app or .dmg>" >&2
+  echo "usage: $0 <path to .app, .dmg, or .pkg>" >&2
   exit 1
 fi
 
 check() {
   echo "--- $1 ---"
 }
+
+if [[ "$TARGET" == *.pkg ]]; then
+  check "Expanding pkg"
+  EXPAND_DIR=$(mktemp -d)/expanded
+  pkgutil --expand-full "$TARGET" "$EXPAND_DIR"
+  APP_IN_PKG="$EXPAND_DIR/Payload/Philly Hamsters.app"
+  if [[ ! -d "$APP_IN_PKG" ]]; then
+    echo "FAIL: Philly Hamsters.app not found in pkg payload" >&2
+    exit 1
+  fi
+  echo "OK: pkg payload contains the app bundle"
+
+  check "pkg signature"
+  if pkgutil --check-signature "$TARGET" 2>&1; then
+    echo "OK: pkg signature verifies"
+  else
+    echo "WARNING: pkg is unsigned (expected for dev builds without an Installer certificate)"
+  fi
+  TARGET="$APP_IN_PKG"
+fi
 
 if [[ "$TARGET" == *.dmg ]]; then
   check "Mounting DMG"
