@@ -44,4 +44,7 @@ There are none. No Swift Package Manager packages, no CocoaPods, no Carthage —
 
 This review covered: all Swift application source, all shell scripts in `scripts/`, both GitHub Actions workflows, the Xcode project configuration, and entitlements/Info.plist. It did **not** and cannot cover: the integrity of Apple's or GitHub's own infrastructure, the security of the maintainer's GitHub account, or behavior of any future code changes made after this review. Re-review after any change that adds a new dependency, new entitlement, or any networking code.
 
-**Last reviewed:** 2026-10-23, against commit `41533e8`.
+**Last reviewed:** 2026-10-23, against commit `372a29d`. Re-checked after the
+pixel-art integration and a SwiftUI layout-crash fix — both changes only
+touched views, assets, and the menu bar icon; no new imports, network code,
+or dependencies were introduced.
