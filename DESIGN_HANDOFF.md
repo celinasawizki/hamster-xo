@@ -7,11 +7,64 @@ placeholder vector drawings (see `PhillyHamsters/Views/PlaceholderHamsterView.sw
 so **nothing blocks on this handoff** — the app already compiles and runs.
 Dropping in correctly-named PNGs listed below is the entire integration step.
 
-**Style direction, explicitly: not pixel art.** Smooth, rounded, soft-shaded
-"cute mobile game" style — closer to a polished sticker/emoji illustration
-than 8-bit sprites. Think smooth curves, soft gradients/shading, clean
-anti-aliased edges. A pixel-art pass was tried and explicitly rejected —
-don't go back there.
+**Style direction, updated: cute pixel art, matching
+[`design-reference/style-mockup.png`](design-reference/style-mockup.png)
+exactly.** This supersedes an earlier note in this doc that said "not pixel
+art" — that's reversed now. The reference image is the authoritative visual
+target; match it, don't reinterpret it. If anything below conflicts with
+the image, the image wins.
+
+What the reference shows, specifically:
+
+- **Chibi pixel-art style** — soft/rounded pixelation, not harsh 8-bit.
+  Blocky-but-smooth edges, limited palette per sprite, antialiased enough
+  to read as "cute," not retro-arcade.
+- **Proportions:** big round head, small round body, no visible neck —
+  classic chibi blob shape. Tiny stub arms/paws.
+- **Fur:** warm golden-tan all over, with a lighter cream/white patch on
+  the belly, cheeks, and muzzle.
+- **Face:** simple black dot eyes (no visible white/sclera), small black
+  nose dot, tiny mouth. Bright pink circular blush on both cheeks — this
+  is a strong, consistent identifying feature across every state.
+- **Girl hamster:** pink bow on top of her head, every frame. **Boy
+  hamster:** no bow, otherwise same fur/face treatment.
+- **Hearts:** small pink pixel hearts are a recurring decorative motif —
+  floating above the pair, held between their paws, or scattered around
+  during excited/celebration states.
+- **Speech bubble:** rounded-rectangle, cream/off-white fill, thin dark
+  outline, small pointer tail aimed at the hamsters, bold dark text
+  (countdown message), small pink heart icon next to the text.
+- **Menu bar icon:** a tiny flattened/simplified version of the pair
+  (just heads mostly) reads fine at 16–22pt — see the mockup's top-right
+  menu bar example.
+
+### States shown in the reference (use these as the target list)
+
+| Reference label | Maps to engine state | Bubble text example |
+|---|---|---|
+| Counting down | `.idle` | "30 days until Philly!" |
+| Excited | `.excited` | "7 days until Philly!" |
+| Sleeping | `.sleeping` | (no text — "Z Z Z" above them) |
+| Eating together | *new, not yet in engine* | "Eating together" |
+| Almost there | `.excited` / `.idle` near date | "1 day until Philly!" |
+| You're here! | `.celebration` | "It's today!" + party hats + confetti |
+| Hover/click | `.excited` or a dedicated reaction | "I can't wait to see you again! Philly is waiting for you!" |
+
+The reference's "Animations (examples)" row also shows standalone poses:
+**Hug** (→ `pair_hugging`), **Blink** (→ `celina_blink`/`kivanc_blink`),
+**Wave**, **Happy jump** (→ `celina_excited`/`kivanc_excited`), **Back
+view**, **Little kiss**, **Heart**. `Wave`, `Back view`, `Little kiss`, and
+a standalone `Heart` pose aren't wired into the engine yet (only the 7
+states in the table below exist in Swift today) — ship art for the 7
+engine states first; treat the others as nice-to-have extra frames engineering
+can wire up later if you deliver them. Same for `Eating together` — it's in
+the reference but has no engine state yet, so it's optional/bonus, not
+blocking.
+
+Don't touch the countdown badge/menu styling shown in the mockup
+(skyline wallpaper, app window chrome, dropdown menu text) — that's
+illustrative mockup context, not something to literally recreate; just the
+hamster characters, speech bubble style, and hearts are the deliverable.
 
 ## How the fallback works
 
