@@ -10,8 +10,7 @@ struct CountdownBadgeView: View {
     var body: some View {
         VStack(spacing: 3) {
             if showsMessage {
-                Text("I can’t wait to see you again!")
-                Text("Philly is waiting for you! ♥")
+                Text(dailyMessage)
                     .foregroundStyle(Color(red: 0.66, green: 0.29, blue: 0.27))
             } else {
                 Text(countdownText.replacingOccurrences(of: " ♡", with: ""))
