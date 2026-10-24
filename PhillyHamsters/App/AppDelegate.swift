@@ -42,9 +42,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Menu bar
 
     private func setUpStatusItem() {
-        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        let item = NSStatusBar.system.statusItem(withLength: 34)
         if let button = item.button {
-            button.image = NSImage(
+            let image = NSImage(named: "MenuBarHamsters")
+            image?.size = NSSize(width: 28, height: 18)
+            image?.isTemplate = false
+            button.image = image ?? NSImage(
                 systemSymbolName: "pawprint.fill",
                 accessibilityDescription: "Philly Hamsters"
             )

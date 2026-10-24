@@ -54,6 +54,8 @@ final class HamsterSceneAnimator: ObservableObject {
         blinkTimer?.invalidate(); blinkTimer = nil
         ambientTimer?.invalidate(); ambientTimer = nil
         returnToIdleTimer?.invalidate(); returnToIdleTimer = nil
+        celinaEyesClosed = false
+        kivancEyesClosed = false
     }
 
     func enterSleepMode(_ sleeping: Bool) {
@@ -81,14 +83,17 @@ final class HamsterSceneAnimator: ObservableObject {
 
         guard state.isAnimated else { return }
 
-        let frameCount = max(
-            SpriteCatalog.pairSpec(for: state)?.frameCount ?? 1,
-            1
-        )
-        let fps = SpriteCatalog.pairSpec(for: state)?.framesPerSecond ?? 8
+        let spec = SpriteCatalog.pairSpec(for: state)
+            ?? SpriteCatalog.soloSpec(for: .celina, state: state)
+        let frameCount = max(spec?.frameCount ?? 1, 1)
+        let fps = spec?.framesPerSecond ?? 8
         let timer = Timer(timeInterval: 1.0 / fps, repeats: true) { [weak self] _ in
             guard let self else { return }
-            self.frameIndex = (self.frameIndex + 1) % frameCount
+            if state == .hugging {
+                self.frameIndex = min(self.frameIndex + 1, frameCount - 1)
+            } else {
+                self.frameIndex = (self.frameIndex + 1) % frameCount
+            }
         }
         RunLoop.main.add(timer, forMode: .common)
         frameTimer = timer
@@ -122,7 +127,7 @@ final class HamsterSceneAnimator: ObservableObject {
         let reopen = Timer(timeInterval: 0.18, repeats: false) { [weak self] _ in
             self?.celinaEyesClosed = false
             self?.kivancEyesClosed = false
-            self?.scheduleBlinkTimer()
+            if self?.animationsEnabled == true { self?.scheduleBlinkTimer() }
         }
         RunLoop.main.add(reopen, forMode: .common)
     }

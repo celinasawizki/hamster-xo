@@ -10,18 +10,22 @@ struct HamsterSceneView: View {
     @StateObject private var animator = HamsterSceneAnimator()
 
     @State private var hasCelebratedArrival = false
+    @State private var isHovering = false
 
     private let pairStates: Set<HamsterAnimationState> = [.hugging, .missingYou, .sleeping, .celebration]
 
     var body: some View {
         VStack(spacing: 6) {
-            if settingsStore.countdownVisible {
+            if settingsStore.countdownVisible && animator.currentState != .sleeping {
                 CountdownBadgeView(
                     countdownText: countdownModel.countdownText,
-                    dailyMessage: countdownModel.dailyMessage
+                    dailyMessage: countdownModel.dailyMessage,
+                    showsMessage: isHovering || animator.currentState == .excited
                 )
             }
             sceneBody
+                .frame(width: 180, height: 90, alignment: .bottom)
+                .onHover { isHovering = $0 }
         }
         .padding(8)
         .background(Color.clear)
@@ -46,7 +50,7 @@ struct HamsterSceneView: View {
                 onTap: { animator.handleClick(on: $0) }
             )
         } else {
-            HStack(spacing: -12) {
+            HStack(spacing: -4) {
                 HamsterSpriteView(
                     role: .celina,
                     state: animator.currentState,

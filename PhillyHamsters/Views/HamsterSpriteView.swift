@@ -22,9 +22,9 @@ struct HamsterSpriteView: View {
 
     @ViewBuilder
     private var content: some View {
-        if let spec = SpriteCatalog.soloSpec(for: role, state: state),
+        if let spec = SpriteCatalog.soloSpec(for: role, state: eyesClosed && state == .idle ? .blinking : state),
            let sheet = NSImage(named: spec.assetName),
-           let frame = sheet.spriteFrame(index: frameIndex % max(spec.frameCount, 1), frameCount: spec.frameCount) {
+           let frame = sheet.spriteFrame(index: eyesClosed && state == .idle ? 2 : frameIndex % max(spec.frameCount, 1), frameCount: spec.frameCount) {
             Image(nsImage: frame)
                 .resizable()
                 .interpolation(.high)

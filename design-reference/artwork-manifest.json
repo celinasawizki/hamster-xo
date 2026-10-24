@@ -1,0 +1,64 @@
+[
+  {
+    "name": "celina_idle",
+    "frames": 1,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: celina_idle. Exactly 1 frame(s). One girl hamster sitting, paws together, sweet smile.",
+    "generator": "Built-in image_gen",
+    "integration": "Uses the first open-eye frame of the corresponding blink sheet for visual continuity."
+  },
+  {
+    "name": "kivanc_idle",
+    "frames": 1,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: kivanc_idle. Exactly 1 frame(s). One boy hamster sitting, paws together, sweet smile.",
+    "generator": "Built-in image_gen",
+    "integration": "Uses the first open-eye frame of the corresponding blink sheet for visual continuity."
+  },
+  {
+    "name": "celina_blink",
+    "frames": 4,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: celina_blink. Exactly 4 frame(s). Girl hamster blink sequence: eyes open, half closed, fully closed, half open. Otherwise identical sitting pose.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "kivanc_blink",
+    "frames": 4,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: kivanc_blink. Exactly 4 frame(s). Boy hamster blink sequence: eyes open, half closed, fully closed, half open. Otherwise identical sitting pose.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "celina_excited",
+    "frames": 6,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: celina_excited. Exactly 6 frame(s). Girl happy jump sequence: crouch, rise, airborne paws up, apex with little pink heart, descend, land. Keep ground baseline fixed.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "kivanc_excited",
+    "frames": 6,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: kivanc_excited. Exactly 6 frame(s). Boy happy jump sequence: crouch, rise, airborne paws up, apex with little pink heart, descend, land. Keep ground baseline fixed.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "pair_hugging",
+    "frames": 8,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: pair_hugging. Exactly 8 frame(s). Both hamsters girl on left boy on right in EACH frame, each cell 2:1. Narrative: sitting apart, girl wiggles, girl moves closer, boy opens paws, hug contact, cheeks squished, hold hug, tender held cuddle with small pink heart. Last frame lovely resting pose.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "pair_missing_you",
+    "frames": 6,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: pair_missing_you. Exactly 6 frame(s). Both hamsters girl left boy right in EACH frame, each cell 2:1. Girl is sad, boy turns towards her, reaches paw, comforts her, she leans in, soft reassuring cuddle. Gentle coherent sequence.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "pair_sleeping",
+    "frames": 2,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: pair_sleeping. Exactly 2 frame(s). Both hamsters cuddled sleeping, girl left boy right in EACH frame, each cell 2:1. Eyes closed, girl bow. Two almost identical poses subtle breathing rise in second frame. Small floating Z symbols above.",
+    "generator": "Built-in image_gen"
+  },
+  {
+    "name": "pair_celebration",
+    "frames": 8,
+    "prompt": "Use case: stylized-concept. Production transparent PNG sprite sheet for the native Philly Hamsters app. Match the hamster characters in the provided reference image: soft rounded pixel art, warm golden tan fur, cream belly muzzle cheeks, tiny black dot eyes, tiny nose and mouth, vivid pink blush, chibi round head/body no neck. Girl Celina always pink bow, boy Kivanc no bow. No scenery, no text, no grid lines, no labels, no backing plate. Actual alpha transparency. All frames same character scale and baseline, generous clear margins in each cell, exactly equal width cells in ONE horizontal row, no wrapping.  Asset: pair_celebration. Exactly 8 frame(s). Both hamsters girl left boy right in EACH frame, each cell 2:1. Both wear tiny pink purple party hats, girl also keeps bow. Happy jumping loop crouch rise jump apex descend land bounce settle, pink hearts and sparse pastel confetti.",
+    "generator": "Built-in image_gen"
+  }
+]

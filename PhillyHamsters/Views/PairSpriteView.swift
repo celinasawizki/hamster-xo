@@ -23,6 +23,10 @@ struct PairSpriteView: View {
                 .resizable()
                 .interpolation(.high)
                 .scaledToFit()
+                .contentShape(Rectangle())
+                .onTapGesture { onTap(.celina) }
+                .accessibilityLabel("Celina and Kivanc the hamsters")
+                .accessibilityAddTraits(.isButton)
         } else {
             placeholderPair
         }

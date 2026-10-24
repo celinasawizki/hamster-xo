@@ -40,7 +40,7 @@ only applies to builds made without an Apple Developer signing certificate.
 - The hamsters are draggable — click and drag them anywhere on screen; they
   remember where you left them.
 - Click a hamster to trigger a random reaction (jump, hug, celebrate).
-- A menu bar icon (a paw print) has **Settings…**, **Reset Mascot
+- A menu bar icon (the hamster pair) has **Settings…**, **Reset Mascot
   Position**, and **Quit**.
 - Settings lets you turn off animations, turn on sound effects (off by
   default), hide the countdown, and enable/disable launch at login.
@@ -56,7 +56,7 @@ PhillyHamsters/
   Views/                   SwiftUI views (scene, sprites, countdown badge, settings)
   Services/                launch-at-login, window position persistence, countdown scheduling
   Animations/              sprite-sheet playback engine + sprite catalog
-  Assets/Assets.xcassets   app icon + (eventually) hamster sprite sheets
+  Assets/Assets.xcassets   app icon + pixel-art hamster sprite sheets
 Tests/PhillyHamstersTests  XCTest unit tests (countdown math, daily messages, date transitions)
 scripts/                   build, sign, notarize, staple, package, validate
 .github/workflows/         CI build+test, and release packaging

@@ -21,6 +21,7 @@
 		8E75844A570B1ED4ABB1F25E /* SpriteCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FF8A7B417C5F50DE5C0EB /* SpriteCatalog.swift */; };
 		9506420C49CB5386AA16EC50 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2A4854F63A51F16E40C578 /* AppNotifications.swift */; };
 		A2A8ED101F8D5D73D31FFED7 /* HamsterSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B70F8ECFD247D5478D6F28 /* HamsterSceneView.swift */; };
+		A78139AA5D1F5BB3A5BA65AF /* ArtworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59EA8D702F5A262A436F9B /* ArtworkTests.swift */; };
 		AF6809C5CEB6EEF86A69EF36 /* CountdownScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88124A62AF04F5A184CF7B8 /* CountdownScheduler.swift */; };
 		B38F6EF2ABFBDABA5763518E /* DailyMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BA7D3430E81070D4BB772 /* DailyMessages.swift */; };
 		BC9D684D1AD1F6411FAF7C45 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27C8492502D181BB92FE44 /* SettingsStore.swift */; };
@@ -69,6 +70,7 @@
 		BC14B7BE85A13B5E35C0AE6B /* HamsterSceneAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterSceneAnimator.swift; sourceTree = "<group>"; };
 		C647DA1BC2FDD5510B77152A /* SpriteFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteFrame.swift; sourceTree = "<group>"; };
 		C8B70F8ECFD247D5478D6F28 /* HamsterSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterSceneView.swift; sourceTree = "<group>"; };
+		CA59EA8D702F5A262A436F9B /* ArtworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkTests.swift; sourceTree = "<group>"; };
 		CF54284CDBA6C81D6DDA240B /* HamsterAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamsterAnimationState.swift; sourceTree = "<group>"; };
 		D1E084B96B360034526C5397 /* PhillyHamstersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyHamstersApp.swift; sourceTree = "<group>"; };
 		F56D796D91B3B71B8F605C96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		316233336C7A349B2E1BEED5 /* PhillyHamstersTests */ = {
 			isa = PBXGroup;
 			children = (
+				CA59EA8D702F5A262A436F9B /* ArtworkTests.swift */,
 				2838B3047B023DD6DA5BC68F /* CountdownModelTests.swift */,
 				8CDDFBF3E2DBC30975233B4E /* DailyMessagesTests.swift */,
 			);
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78139AA5D1F5BB3A5BA65AF /* ArtworkTests.swift in Sources */,
 				81131BC209AB07B2414FED03 /* CountdownModelTests.swift in Sources */,
 				41B610C9602F2BDFCC6C1930 /* DailyMessagesTests.swift in Sources */,
 			);
