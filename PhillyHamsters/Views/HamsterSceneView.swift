@@ -22,6 +22,10 @@ struct HamsterSceneView: View {
                     dailyMessage: countdownModel.dailyMessage,
                     showsMessage: isHovering || animator.currentState == .excited
                 )
+                // Pinned height: otherwise the hover message resizing the
+                // badge shifts sceneBody's .onHover target under the
+                // cursor, flipping isHovering back and forth forever.
+                .frame(height: 70, alignment: .bottom)
             }
             sceneBody
                 .frame(width: 180, height: 90, alignment: .bottom)
